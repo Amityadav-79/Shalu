@@ -1,0 +1,70 @@
+
+<!---Amit yadav -->>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <link rel="stylesheet" href="style.css" />
+    <title>anjali family</title>
+  </head>
+
+  <body ng-app="birthday">
+  <!---main card--> 
+    <div class="container">
+      <div class="card">
+        <div class="sides left-side">
+          <div class="invite"  ng-controller="party"><br>
+            <p>{{ firstName| uppercase }}</p>
+            <p>{{ lastName | uppercase }}</p><br>
+            <h5 align="center">The Party Will be Held on {{ date | date:"dd.MM.yyyy"}} at 6PM onwards.</h5>
+          </div>
+        </div>
+        
+       <!---rightside of the card-->
+        
+        <div class="sides right-side">
+          <div class="invite1"  ng-controller="party"><br><br><br><br><br><br>
+            <p align="center">{{ kName| lowercase }}</p><br>
+            <h4 align="center">{{ astName | uppercase }}</h4><br><br><br><br><br><br>
+            <h6 align="center"> Join the party it's free {{ amount | currency }}!!!!!!! .</h6>
+          </div>
+        </div>
+        
+      <!---backside of the card-->
+        
+        <div class="back-side">
+          <div class="innercard" ng-controller="party" align="center"><br><br><br><br>
+            <h1>Invited Peoples </h1>
+              <h4 ng-repeat="x in names | orderBy:'first'">
+                {{ x.first + ' ' + x.last }}</h4>      
+          </div>
+        </div>
+        <script>
+          angular.module('birthday', []).controller('party', function($scope) {
+              $scope.firstName = "join us for a "
+              $scope.lastName = " royal celebration"
+              $scope.date= new Date();
+              $scope.amount="0",
+              $scope.kName = "to celebrate " 
+              $scope.astName ="Anjali Royal Party"    
+              $scope.names = [
+              {first:'Ameya',last:'anju'},
+              {first:'pooja',last:'Yadav'},
+              {first:'Neha',last:'Yadav'},
+              {first:'Anjali',last:'Yadav'},
+              {first:'Ankita',last:'Gupta'},
+              {first:'Inda',last:'Yadav'},
+              {first:'Sacchelal',last:'Yadav'},
+              {first:'dharmik',last:'upg'},
+              ];  
+          });
+          </script>
+
+
+
+
+
+      </div>
+    </div>
+  </body>
+</html>
